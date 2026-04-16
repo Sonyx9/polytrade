@@ -7,11 +7,12 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+const assetBase = import.meta.env.BASE_URL;
 
 const heroSlide = {
   tag: lang === 'en' ? 'Tailoring & Craft' : 'Krejčovství & řemeslo',
   title: lang === 'en' ? 'Professional scissors for every craftsman' : 'Profesionální nůžky pro každého řemeslníka',
-  bg: '/images/hero-inspirace.png',
+  bg: `${assetBase}images/hero-inspirace.png`,
 };
 ---
 
