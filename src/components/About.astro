@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const assetBase = import.meta.env.BASE_URL;
+const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 
 ---
 
