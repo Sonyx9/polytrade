@@ -1,0 +1,91 @@
+---
+import type { Lang } from '../i18n';
+import { t } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const brands = [
+  {
+    name: t(lang, 'brand1_name'),
+    tag: t(lang, 'brand1_tag'),
+    desc: t(lang, 'brand1_desc'),
+    cta: t(lang, 'brand1_cta'),
+    href: 'https://www.profinuzky.cz/',
+    image: '/images/intro-mobil.webp',
+    imagePositionClass: 'object-cover',
+    imageStyle: 'object-position: 48% center;',
+  },
+  {
+    name: t(lang, 'brand2_name'),
+    tag: t(lang, 'brand2_tag'),
+    desc: t(lang, 'brand2_desc'),
+    cta: t(lang, 'brand2_cta'),
+    href: 'https://gardenandhobby.com/',
+    image: '/images/gallery-watering-can.png',
+    imagePositionClass: 'object-cover object-center',
+  },
+  {
+    name: t(lang, 'brand3_name'),
+    tag: t(lang, 'brand3_tag'),
+    desc: t(lang, 'brand3_desc'),
+    cta: t(lang, 'brand3_cta'),
+    href: 'https://grillandhobby.com/',
+    image: '/images/gallery-grill-2.jpg',
+    imagePositionClass: 'object-cover object-center',
+  },
+];
+
+---
+
+<section id="brands" class="py-14 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section header — matches reference exactly -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-extrabold text-[#1a1a2e] tracking-tight">
+        {t(lang, 'brands_title')}
+      </h2>
+    </div>
+
+    <!-- Three full-bleed image cards -->
+    <div class="grid md:grid-cols-3 gap-5 mb-12">
+      {brands.map((brand) => (
+        <a
+          href={brand.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative rounded-2xl overflow-hidden aspect-[4/5] block"
+        >
+          <!-- Full-bleed image -->
+          <img
+            src={brand.image}
+            alt={brand.name}
+            class={`w-full h-full ${brand.imagePositionClass} group-hover:scale-105 transition-transform duration-500`}
+            style={brand.imageStyle}
+            loading="lazy"
+          />
+
+          <!-- Gradient overlay bottom -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+          <!-- Arrow top-right -->
+          <div class="absolute top-4 right-4 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1a1a2e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </div>
+
+          <!-- Text overlay bottom-left -->
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <p class="text-white font-extrabold text-xl mb-1 leading-snug">{brand.name}</p>
+            <p class="text-white/70 text-xs leading-relaxed line-clamp-2">{brand.desc}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

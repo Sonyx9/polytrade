@@ -1,0 +1,57 @@
+---
+import type { Lang } from '../i18n';
+import { t } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const heroSlide = {
+  tag: lang === 'en' ? 'Tailoring & Craft' : 'Krejčovství & řemeslo',
+  title: lang === 'en' ? 'Professional scissors for every craftsman' : 'Profesionální nůžky pro každého řemeslníka',
+  bg: '/images/hero-inspirace.png',
+};
+---
+
+<section class="relative h-[88vh] min-h-[520px] overflow-hidden bg-[#1a1a2e]" id="hero-slider">
+  <div class="absolute inset-0">
+    <img
+      src={heroSlide.bg}
+      alt={heroSlide.title}
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/10"></div>
+
+    <!-- Content -->
+    <div class="absolute inset-0 flex flex-col items-end justify-end pb-20 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto left-0 right-0 text-right">
+      <div class="mb-4">
+        <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
+          {heroSlide.tag}
+        </span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] max-w-2xl tracking-tight mb-3">
+        {heroSlide.title}
+      </h1>
+
+      <p class="text-white/70 text-sm sm:text-base max-w-lg leading-relaxed mb-6">
+        {t(lang, 'hero_subtitle')}
+      </p>
+
+      <div>
+        <a
+          href="#brands"
+          class="inline-flex items-center gap-2 bg-white text-[#1a1a2e] text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-100 transition-colors"
+        >
+          {t(lang, 'hero_cta')}
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

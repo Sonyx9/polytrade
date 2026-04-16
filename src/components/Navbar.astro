@@ -1,0 +1,94 @@
+---
+import type { Lang } from '../i18n';
+import { t } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const otherLang = lang === 'en' ? 'cs' : 'en';
+const otherLangHref = lang === 'en' ? '/cs/' : '/';
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100"
+>
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-6">
+    <!-- Logo -->
+    <a href={lang === 'en' ? '/' : '/cs/'} class="flex items-center gap-2 shrink-0">
+      <div class="w-7 h-7 bg-[#1a1a2e] rounded-md flex items-center justify-center">
+        <span class="text-white text-[10px] font-extrabold tracking-tight">PT</span>
+      </div>
+      <span class="font-bold text-[#1a1a2e] text-sm tracking-wide hidden sm:block">PolyTrade</span>
+    </a>
+
+    <!-- Center nav links -->
+    <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-600 flex-1 justify-center">
+      <li>
+        <a href={lang === 'en' ? '/' : '/cs/'} class="hover:text-[#1a1a2e] transition-colors">
+          {t(lang, 'nav_home')}
+        </a>
+      </li>
+      <li>
+        <a href={lang === 'en' ? '/#brands' : '/cs/#brands'} class="hover:text-[#1a1a2e] transition-colors">
+          {t(lang, 'nav_projects')}
+        </a>
+      </li>
+      <li>
+        <a href={lang === 'en' ? '/#about' : '/cs/#about'} class="hover:text-[#1a1a2e] transition-colors">
+          {t(lang, 'nav_about')}
+        </a>
+      </li>
+      <li>
+        <a href={lang === 'en' ? '/#contact' : '/cs/#contact'} class="hover:text-[#1a1a2e] transition-colors">
+          {t(lang, 'nav_contact')}
+        </a>
+      </li>
+    </ul>
+
+    <!-- Right: lang switch + subscribe -->
+    <div class="flex items-center gap-2 shrink-0">
+      <a
+        href={otherLangHref}
+        class="text-xs font-semibold uppercase tracking-widest text-gray-400 hover:text-[#1a1a2e] transition-colors px-2 py-1"
+      >
+        {otherLang}
+      </a>
+      <a
+        href={lang === 'en' ? '/#contact' : '/cs/#contact'}
+        class="hidden sm:inline-flex items-center border border-[#1a1a2e] text-[#1a1a2e] text-xs font-semibold px-4 py-1.5 rounded-full hover:bg-[#1a1a2e] hover:text-white transition-all"
+      >
+        {lang === 'en' ? 'Contact us' : 'Kontakt'}
+      </a>
+
+      <!-- Mobile menu button -->
+      <button id="menu-btn" class="md:hidden p-1.5 text-gray-600" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pb-4">
+    <ul class="flex flex-col gap-3 pt-4 text-sm font-medium text-gray-700">
+      <li><a href={lang === 'en' ? '/#brands' : '/cs/#brands'} class="block py-1">{t(lang, 'nav_projects')}</a></li>
+      <li><a href={lang === 'en' ? '/#about' : '/cs/#about'} class="block py-1">{t(lang, 'nav_about')}</a></li>
+      <li><a href={lang === 'en' ? '/#contact' : '/cs/#contact'} class="block py-1">{t(lang, 'nav_contact')}</a></li>
+      <li>
+        <a href={otherLangHref} class="inline-block text-xs uppercase tracking-widest text-gray-500 border border-gray-200 px-3 py-1 rounded-full mt-1">
+          {otherLang === 'cs' ? 'Česky' : 'English'}
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

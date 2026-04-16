@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Brands from '../components/Brands.astro';
+import About from '../components/About.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  lang="en"
+  title="PL PolyTrade s.r.o. — Quality Across Trades"
+  description="PL PolyTrade s.r.o. is a Czech company operating three specialist e-commerce brands: ProfiNůžky (tailoring scissors), Garden & Hobby, and Grill & Hobby."
+>
+  <Navbar lang="en" />
+  <main>
+    <Hero lang="en" />
+    <Brands lang="en" />
+    <About lang="en" />
+    <Newsletter lang="en" />
+    <Contact lang="en" />
+  </main>
+  <Footer lang="en" />
+</BaseLayout>
