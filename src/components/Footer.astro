@@ -13,12 +13,14 @@ const year = new Date().getFullYear();
 <footer class="bg-[#0f0f1a] border-t border-white/10 py-10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8">
-      <!-- Logo + name -->
-      <a href={lang === 'en' ? '/' : '/cs/'} class="flex items-center gap-2">
-        <div class="w-7 h-7 bg-[#c4a572] rounded-md flex items-center justify-center">
-          <span class="text-[#1a2654] text-[10px] font-extrabold">PT</span>
-        </div>
-        <span class="text-white font-bold text-sm">PolyTrade</span>
+      <!-- Logo -->
+      <a href={lang === 'en' ? '/' : '/cs/'} class="flex items-center" aria-label="PL Poly Trade s.r.o.">
+        <img
+          src={`${import.meta.env.BASE_URL}images/logo.png`}
+          alt="PL Poly Trade s.r.o."
+          class="h-14 w-auto"
+          style="filter: brightness(0) invert(1);"
+        />
       </a>
 
       <!-- Brand links -->
