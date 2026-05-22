@@ -7,7 +7,6 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 
 ---
 
@@ -28,7 +27,7 @@ const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
       <div>
         <div class="relative rounded-2xl overflow-hidden aspect-[16/7] bg-gray-100">
           <img
-            src={`${assetBase}images/Scissors_near_grill_202603311633.jpeg`}
+            src="/images/Scissors_near_grill_202603311633.jpeg"
             alt="PL PolyTrade s.r.o."
             class="w-full h-full object-cover"
             loading="lazy"
@@ -42,11 +41,11 @@ const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
         <!-- Company card — styled like author card -->
         <div class="bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm h-full flex flex-col justify-center">
           <!-- Logo avatar -->
-          <div class="w-14 h-14 bg-[#1a1a2e] rounded-2xl flex items-center justify-center mx-auto mb-3">
-            <span class="text-[#c8a97e] font-extrabold text-lg">PT</span>
+          <div class="w-14 h-14 bg-[#1a2654] rounded-2xl flex items-center justify-center mx-auto mb-3">
+            <span class="text-[#c4a572] font-extrabold text-lg">PT</span>
           </div>
           <div class="mb-4">
-            <p class="font-bold text-[#1a1a2e] text-sm">PL PolyTrade s.r.o.</p>
+            <p class="font-bold text-[#1a2654] text-sm">PL PolyTrade s.r.o.</p>
             <p class="text-xs text-gray-500 leading-relaxed mt-1">Školská 660/3, 110 00 Praha 1</p>
             <p class="text-xs text-gray-400 mt-1">{t(lang, 'about_ico')}: 244 26 091</p>
           </div>

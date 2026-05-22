@@ -2,8 +2,10 @@
 
 @theme {
   --font-sans: 'Inter', system-ui, sans-serif;
-  --color-brand: #1a1a2e;
-  --color-accent: #c8a97e;
+  --color-brand: #1a2654;
+  --color-brand-deep: #131c40;
+  --color-accent: #c4a572;
+  --color-accent-soft: #d9bf8e;
 }
 
 html {

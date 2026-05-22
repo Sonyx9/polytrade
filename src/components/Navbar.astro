@@ -17,32 +17,29 @@ const otherLangHref = lang === 'en' ? '/cs/' : '/';
 >
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-6">
     <!-- Logo -->
-    <a href={lang === 'en' ? '/' : '/cs/'} class="flex items-center gap-2 shrink-0">
-      <div class="w-7 h-7 bg-[#1a1a2e] rounded-md flex items-center justify-center">
-        <span class="text-white text-[10px] font-extrabold tracking-tight">PT</span>
-      </div>
-      <span class="font-bold text-[#1a1a2e] text-sm tracking-wide hidden sm:block">PolyTrade</span>
+    <a href={lang === 'en' ? '/' : '/cs/'} class="flex items-center gap-2 shrink-0" aria-label="PL Poly Trade s.r.o.">
+      <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="PL Poly Trade s.r.o." class="h-9 w-auto" />
     </a>
 
     <!-- Center nav links -->
     <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-600 flex-1 justify-center">
       <li>
-        <a href={lang === 'en' ? '/' : '/cs/'} class="hover:text-[#1a1a2e] transition-colors">
+        <a href={lang === 'en' ? '/' : '/cs/'} class="hover:text-[#1a2654] transition-colors">
           {t(lang, 'nav_home')}
         </a>
       </li>
       <li>
-        <a href={lang === 'en' ? '/#brands' : '/cs/#brands'} class="hover:text-[#1a1a2e] transition-colors">
+        <a href={lang === 'en' ? '/#brands' : '/cs/#brands'} class="hover:text-[#1a2654] transition-colors">
           {t(lang, 'nav_projects')}
         </a>
       </li>
       <li>
-        <a href={lang === 'en' ? '/#about' : '/cs/#about'} class="hover:text-[#1a1a2e] transition-colors">
+        <a href={lang === 'en' ? '/#about' : '/cs/#about'} class="hover:text-[#1a2654] transition-colors">
           {t(lang, 'nav_about')}
         </a>
       </li>
       <li>
-        <a href={lang === 'en' ? '/#contact' : '/cs/#contact'} class="hover:text-[#1a1a2e] transition-colors">
+        <a href={lang === 'en' ? '/#contact' : '/cs/#contact'} class="hover:text-[#1a2654] transition-colors">
           {t(lang, 'nav_contact')}
         </a>
       </li>
@@ -52,13 +49,13 @@ const otherLangHref = lang === 'en' ? '/cs/' : '/';
     <div class="flex items-center gap-2 shrink-0">
       <a
         href={otherLangHref}
-        class="text-xs font-semibold uppercase tracking-widest text-gray-400 hover:text-[#1a1a2e] transition-colors px-2 py-1"
+        class="text-xs font-semibold uppercase tracking-widest text-gray-400 hover:text-[#1a2654] transition-colors px-2 py-1"
       >
         {otherLang}
       </a>
       <a
         href={lang === 'en' ? '/#contact' : '/cs/#contact'}
-        class="hidden sm:inline-flex items-center border border-[#1a1a2e] text-[#1a1a2e] text-xs font-semibold px-4 py-1.5 rounded-full hover:bg-[#1a1a2e] hover:text-white transition-all"
+        class="hidden sm:inline-flex items-center border border-[#1a2654] text-[#1a2654] text-xs font-semibold px-4 py-1.5 rounded-full hover:bg-[#1a2654] hover:text-white transition-all"
       >
         {lang === 'en' ? 'Contact us' : 'Kontakt'}
       </a>

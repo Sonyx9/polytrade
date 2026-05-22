@@ -7,52 +7,59 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 
 const heroSlide = {
-  tag: lang === 'en' ? 'Tailoring & Craft' : 'Krejčovství & řemeslo',
-  title: lang === 'en' ? 'Professional scissors for every craftsman' : 'Profesionální nůžky pro každého řemeslníka',
-  bg: `${assetBase}images/hero-uvod.webp`,
+  tag: lang === 'en' ? 'PL PolyTrade s.r.o.' : 'PL PolyTrade s.r.o.',
+  title: lang === 'en' ? 'Three brands. One mission.' : 'Tři značky. Jedna mise.',
 };
 ---
 
-<section class="relative h-[88vh] min-h-[520px] overflow-hidden bg-[#1a1a2e]" id="hero-slider">
-  <div class="absolute inset-0">
-    <img
-      src={heroSlide.bg}
-      alt={heroSlide.title}
-      class="w-full h-full object-cover"
-      loading="eager"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/10"></div>
+<section class="relative h-[88vh] min-h-[520px] overflow-hidden bg-[#1a2654]" id="hero-slider">
+  <!-- Subtle monochrome texture -->
+  <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, #c4a572 1px, transparent 0); background-size: 28px 28px;"></div>
 
-    <!-- Content -->
-    <div class="absolute inset-0 flex flex-col justify-end pb-20 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto left-0 right-0">
-      <div class="mb-4">
-        <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20">
-          {heroSlide.tag}
-        </span>
-      </div>
+  <!-- Soft vignette so content reads cleanly -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#1a2654] via-[#1a2654]/95 to-[#131c40]"></div>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] max-w-2xl tracking-tight mb-3">
-        {heroSlide.title}
-      </h1>
+  <!-- Thin gold top accent -->
+  <div class="absolute top-0 left-0 right-0 h-[3px] bg-[#c4a572]"></div>
 
-      <p class="text-white/70 text-sm sm:text-base max-w-lg leading-relaxed mb-6">
-        {t(lang, 'hero_subtitle')}
-      </p>
+  <!-- Content -->
+  <div class="relative h-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col items-start justify-center">
+    <div class="mb-5">
+      <span class="inline-flex items-center gap-2 text-[#c4a572] text-xs font-semibold tracking-[0.25em] uppercase">
+        <span class="w-8 h-px bg-[#c4a572]"></span>
+        {heroSlide.tag}
+      </span>
+    </div>
 
-      <div>
-        <a
-          href="#brands"
-          class="inline-flex items-center gap-2 bg-white text-[#1a1a2e] text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-100 transition-colors"
-        >
-          {t(lang, 'hero_cta')}
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
-        </a>
-      </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] max-w-3xl tracking-tight mb-5">
+      {heroSlide.title}
+    </h1>
+
+    <p class="text-white/70 text-sm sm:text-base max-w-xl leading-relaxed mb-8">
+      {t(lang, 'hero_subtitle')}
+    </p>
+
+    <div class="flex flex-wrap items-center gap-3">
+      <a
+        href="#brands"
+        class="inline-flex items-center gap-2 bg-[#c4a572] text-[#1a2654] text-sm font-bold px-6 py-3 rounded-full hover:bg-[#d9bf8e] transition-colors"
+      >
+        {t(lang, 'hero_cta')}
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+        </svg>
+      </a>
+      <a
+        href="#about"
+        class="inline-flex items-center gap-2 border border-white/30 text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors"
+      >
+        {t(lang, 'nav_about')}
+      </a>
     </div>
   </div>
+
+  <!-- Thin gold bottom accent -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-[#c4a572]"></div>
 </section>

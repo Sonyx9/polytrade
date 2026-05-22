@@ -7,7 +7,6 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 
 const brands = [
   {
@@ -16,7 +15,7 @@ const brands = [
     desc: t(lang, 'brand1_desc'),
     cta: t(lang, 'brand1_cta'),
     href: 'https://www.profinuzky.cz/',
-    image: `${assetBase}images/intro-mobil.webp`,
+    image: '/images/intro-mobil.webp',
     imagePositionClass: 'object-cover',
     imageStyle: 'object-position: 48% center;',
   },
@@ -26,7 +25,7 @@ const brands = [
     desc: t(lang, 'brand2_desc'),
     cta: t(lang, 'brand2_cta'),
     href: 'https://gardenandhobby.com/',
-    image: `${assetBase}images/gallery-watering-can.png`,
+    image: '/images/gallery-watering-can.png',
     imagePositionClass: 'object-cover object-center',
   },
   {
@@ -35,7 +34,7 @@ const brands = [
     desc: t(lang, 'brand3_desc'),
     cta: t(lang, 'brand3_cta'),
     href: 'https://grillandhobby.com/',
-    image: `${assetBase}images/gallery-grill-2.jpg`,
+    image: '/images/gallery-grill-2.jpg',
     imagePositionClass: 'object-cover object-center',
   },
 ];
@@ -47,7 +46,7 @@ const brands = [
 
     <!-- Section header — matches reference exactly -->
     <div class="mb-8">
-      <h2 class="text-2xl font-extrabold text-[#1a1a2e] tracking-tight">
+      <h2 class="text-2xl font-extrabold text-[#1a2654] tracking-tight">
         {t(lang, 'brands_title')}
       </h2>
     </div>
@@ -75,7 +74,7 @@ const brands = [
 
           <!-- Arrow top-right -->
           <div class="absolute top-4 right-4 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1a1a2e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#1a2654]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
             </svg>
           </div>
